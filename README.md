@@ -15,3 +15,5 @@
 ### Merchant Service
 - Getting merchant profile
 - Create sub user account
+
+## Explanation on how to access protected routes
