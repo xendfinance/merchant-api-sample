@@ -1,7 +1,7 @@
 
 
 import {availableCurrencies, availableCurrencySavings, availableCurrencyStaking } from '../../controllers/v1/appData/currency';
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import deviceWare from '../../middleware/device-id';
 
 
