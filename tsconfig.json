@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"pretty": true,
+	
+		"esModuleInterop": true,
+		"sourceMap": true,
+		"outDir": "./dist",
+		"lib": [
+			"ES2015",
+			"DOM"
+		]
+	},
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"test/**/*.ts"
+	]
+}
