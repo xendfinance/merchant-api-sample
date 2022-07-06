@@ -3,18 +3,17 @@
 import {registerMerchant, MerchantSandboxRegistration, signupSubUser } from '../../controllers/v1/auth/register';
 import {getMerchantProfile, getSubUserProfile } from '../../controllers/v1/auth/profile';
 import { Router } from 'express';
-import deviceWare from '../../middleware/device-id';
 
 
 const router = Router();
-router.post('/sandbox/register', deviceWare, MerchantSandboxRegistration);
+router.post('/sandbox/register', MerchantSandboxRegistration);
 
-router.post('/merchant/register', deviceWare, registerMerchant);
+router.post('/merchant/register', registerMerchant);
 
-router.post('/sub-user/register', deviceWare, signupSubUser);
+router.post('/sub-user/register', signupSubUser);
 
-router.get('/merchant/profile', deviceWare, getMerchantProfile);
+router.get('/merchant/profile', getMerchantProfile);
 
-router.get('/subuser/profile', deviceWare, getSubUserProfile);
+router.get('/subuser/profile', getSubUserProfile);
 
 export default router;

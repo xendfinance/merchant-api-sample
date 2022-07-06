@@ -14,7 +14,6 @@ export async function dailyApy(req: Request , res: Response) {
 	    const response = await axios.get(`${baseUrl}public/data/app/apy/daily`,{data})
 		return sendData(res, response.data.data);
 	} catch (e) {
-        console.log(e , 'lol===')
 		return sendResponse(res, StatusCode.INTERNAL_SERVER_ERROR, e);
 	}
 }
@@ -26,7 +25,6 @@ export async function todayApy(req: Request , res: Response) {
 	    const response = await axios.get(`${baseUrl}public/data/app/apy/daily/today`)
 		return sendData(res, response.data.data);
 	} catch (e) {
-        console.log(e , 'lol===')
 		return sendResponse(res, StatusCode.INTERNAL_SERVER_ERROR, e);
 	}
 }

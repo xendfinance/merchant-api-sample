@@ -11,7 +11,7 @@ export async function createMemberFixedSavingsProfile(req: Request , res: Respon
 		const { title, depositAmount, currencyId , durationDays, } = params;
         let data = {title, depositAmount, currencyId, durationDays }
 
-		const headersData =  await  setHeader(data)
+		const headersData =  await  setHeader(data, req.headers.memberemail)
 		// make api axios call to create a member fixed savings profile
 	    const response = await axios.post(`${baseUrl}public/member/savings/stable-currency/fixed`,data,{headers:{Authorization: headersData.Authorization, Authentication:headersData.Authentication,timestamp:headersData.timestamp,Memberemail:headersData.Memberemail, Apisignature:headersData.Apisignature,UserLanguage:headersData.UserLanguage,MerchantCode:headersData.MerchantCode.toString()}});
 		return sendData(res,  response.data.data);

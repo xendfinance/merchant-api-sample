@@ -11,7 +11,7 @@ export async function createMemberWhiteListWalletAddress(req: Request , res: Res
 		const { title, blockchainNetworkId, ethereumAddress } = params;
         let data = {title, blockchainNetworkId, ethereumAddress }
 
-		const headersData =  await  setHeader(data)
+		const headersData =  await  setHeader(data, req.headers.memberemail)
 		// make api axios call to create a member whitelist wallet address
 	    const response = await axios.post(`${baseUrl}public/member/wallet/external-crypto-address`,data,{headers:{Authorization: headersData.Authorization, Authentication:headersData.Authentication,timestamp:headersData.timestamp,Memberemail:headersData.Memberemail, Apisignature:headersData.Apisignature,UserLanguage:headersData.UserLanguage,MerchantCode:headersData.MerchantCode.toString()}});
 		return sendData(res,  response.data.data);
@@ -24,7 +24,7 @@ export async function createMemberWhiteListWalletAddress(req: Request , res: Res
 //get member wallet address balance
 export async function getMemberWalletAddressAndBalance(req: Request , res: Response) {
 	try {
-		const headersData =  await  setHeader({})
+		const headersData =  await  setHeader({}, req.headers.memberemail)
 		// make api axios call to create a member wallet address
 	    const response = await axios.get(`${baseUrl}public/member/wallet/balances`,{headers:{Authorization: headersData.Authorization, Authentication:headersData.Authentication,timestamp:headersData.timestamp,Memberemail:headersData.Memberemail, Apisignature:headersData.Apisignature,UserLanguage:headersData.UserLanguage,MerchantCode:headersData.MerchantCode.toString()}});
 		return sendData(res,  response.data.data);

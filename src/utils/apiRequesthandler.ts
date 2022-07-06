@@ -2,13 +2,12 @@ import cryptojs from "crypto-js";
 
 const dns = require('dns');
 //this keys are returned while you complete a successful merchant sign up 
-const Memberemail = process.env.Memberemail
 const MerchantCode = process.env.MerchantCode
 const clientSecret = process.env.clientSecret
 const clientToken = process.env.clientToken
 
 // set header data
-export async function setHeader(data){
+export async function setHeader(data,Memberemail){
       //  const userData = await  getMerchantDetail()
         const timestamp = new Date().getTime().toString();
         const hmac = getApiSignatureTemp(data,timestamp ,clientSecret, clientToken )
@@ -17,7 +16,7 @@ export async function setHeader(data){
             Authentication: `Basic ${clientToken}`,
             Apisignature: hmac.signature,
             timestamp:timestamp,
-            Memberemail:Memberemail,
+            Memberemail:Memberemail, // this is passed from the header 
             UserLanguage:'en',
             MerchantCode:MerchantCode,
           }

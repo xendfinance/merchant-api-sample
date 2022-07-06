@@ -1,9 +1,7 @@
 import axios from 'axios';
 require("dotenv").config();
 import http from "http";
-import { Server } from "socket.io";
 import mongoose from "mongoose";
-import cron from "node-cron";
 import createApp from "./app";
 import retrieveSecrets from "./manager/secrets";
 import { secrets } from "./manager/secrets";
@@ -16,22 +14,6 @@ const startServer = async () => {
   const app = await createApp();
 
   const server = http.createServer(app);
-  const io = new Server(server, {
-    cors: {
-      origin: ["http://localhost:3000", "https://admin.xend.finance"],
-      methods: ["GET", "POST"],
-      credentials: true,
-    },
-  });
-
-  io.on("connection", (socket) => {
-    console.log(socket.id);
-
-    socket.on("disconnect", () => {
-      console.log("disconnected");
-    });
-  });
-  
   const PORT = process.env.PORT;
   server.listen(PORT, async () => {
     console.log("Application started on http://localhost:%d", PORT);
