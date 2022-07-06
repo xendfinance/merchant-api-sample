@@ -1,8 +1,7 @@
 
 
 import { createMemberWhiteListWalletAddress, getMemberWalletAddressAndBalance} from '../../controllers/v1/wallet/memberWallet';
-import { Router, Request, Response } from 'express';
-import { deserializeMerchant } from '../../middleware';
+import { Router } from 'express';
 import deviceWare from '../../middleware/device-id';
 
 

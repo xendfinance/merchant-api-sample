@@ -1,8 +1,7 @@
 
 
 import { appVersion, globalEnum, blockchainNetworks} from '../../controllers/v1/appData/global';
-import { Router, Request, Response } from 'express';
-import { deserializeMerchant } from '../../middleware';
+import { Router } from 'express';
 import deviceWare from '../../middleware/device-id';
 
 
