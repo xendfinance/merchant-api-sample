@@ -2,8 +2,7 @@
 
 import {registerMerchant, MerchantSandboxRegistration, signupSubUser } from '../../controllers/v1/auth/register';
 import {getMerchantProfile, getSubUserProfile } from '../../controllers/v1/auth/profile';
-import { Router, Request, Response } from 'express';
-import { deserializeMerchant } from '../../middleware';
+import { Router } from 'express';
 import deviceWare from '../../middleware/device-id';
 
 
