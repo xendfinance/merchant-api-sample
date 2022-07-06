@@ -1,4 +1,4 @@
-# Xend Finance Merchant Test App Integration Guide
+# Xend Finance Merchant App Integration Guide
 ## Api Sections implemented in swagger documentation
 ### Merchant Auth
 - Sand box user account creation that would be used to create merchant account
